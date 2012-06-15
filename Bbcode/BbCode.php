@@ -1131,7 +1131,11 @@ class BbCode {
 		foreach ($nodes as $nKey => $node) {
 
 			if ($node['type'] == self::NODE_TYPE_TEXT && $key == 'text') {
-				$addText = $node['text'];
+				if($key == 'text' && isset($node['text_html'])){
+					$addText = $node['text_html'];
+				}else{
+					$addText = $node['text'];	
+				}
 				//takie oznaczenie mowi nam ze
 				if (!isset($node['nohtmlspecialchars']) ||
 						(isset($node['nohtmlspecialchars']) && !$node['nohtmlspecialchars'])) {
