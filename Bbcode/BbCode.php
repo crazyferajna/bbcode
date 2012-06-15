@@ -191,7 +191,7 @@ class BbCode {
 	 * @return object obiekt filtru lub false, gdy filtr jest niezaładowany
 	 */
 	public function getFilter($filter){
-		$filter = ucfirst(lowercase($filter));
+		$filter = ucfirst(strtolower($filter));
 		if(array_key_exists($filter, $this->filters)){
 			return $this->filters[$filter];	
 		}
