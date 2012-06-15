@@ -184,7 +184,20 @@ class BbCode {
 	public function addFilter($filter) {
 		return $this->_loadFilter($filter);
 	}
-
+	
+	/**
+	 * Zwraca obiekt filtru
+	 * @param string $filter
+	 * @return object obiekt filtru lub false, gdy filtr jest niezaładowany
+	 */
+	public function getFilter($filter){
+		$filter = ucfirst(lowercase($filter));
+		if(array_key_exists($filter, $this->filters)){
+			return $this->filters[$filter];	
+		}
+		return false;
+	}	 
+	
 	/**
 	 * 	Usuwa filtr
 	 * 	@param $filter string nazwa filtra
