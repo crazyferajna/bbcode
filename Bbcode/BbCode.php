@@ -192,10 +192,10 @@ class BbCode {
 	 */
 	public function getFilter($filter){
 		$filter = ucfirst(strtolower($filter));
-		if(array_key_exists($filter, $this->filters)){
-			return $this->filters[$filter];	
+		if (!isset($this->filters[$filter])){
+			return false;	
 		}
-		return false;
+		return $this->filters[$filter];
 	}	 
 	
 	/**
