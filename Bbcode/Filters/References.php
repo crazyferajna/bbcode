@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Standardowe tagi
+ * Odnośniki
  * @package Parser
  * @subpackage Filters
- * @author wookieb
- * @version 1.2
+ * @author K13
+ * @version 0.1
  */
 class BbCodeFilterReferences {
 	
