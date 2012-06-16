@@ -59,7 +59,7 @@ Kod:
 [code]Kod nie jest kolorowany. Zostawiam możliwość implementacji użytkownikowi. 
 Wszystkie inne tagi w tym obszarze będą ignorowane [code][b][s][i][/code][/code]
 
-Linkowanie filmów z youtube:
+Linkowanie filmów z youtube[ref=Youtube]serwis pozwalający udostepniać filmy[/ref]:
 [youtube]-Fe4dk0Jtcw[/youtube]
 ';
 
@@ -80,6 +80,11 @@ Linkowanie filmów z youtube:
 
 			echo '<fieldset><legend>Przeparsowany bbcode (zaufany) ('.$time.')</legend>'.$bb->getHtml().'</fieldset>';
 			echo '<fieldset class="pre"><legend>Wersja bbcode (zaufany) ('.$time.')</legend>'.$bb->getBbcode().'</fieldset>';
-			?>
+			echo '<frameset><legend>Wylistowane odnośniki</legend><ul>';
+			foreach($bb->getFilter('references')->getReferences() as $reference){
+				echo '<li>'.$reference['name'].' - '.$reference['descr'].'</li>';
+			}
+			echo '</ul></frameset>';
+		?>
 	</body>
 </html>
