@@ -9,7 +9,7 @@
  */
 class BbCodeFilterReferences {
 	
-	public $references = array();
+	protected $_references = array();
 	
 	public $tags = array(
 		'ref' => array(
@@ -27,13 +27,13 @@ class BbCodeFilterReferences {
 	
 	public function parseReferences($tag, &$openNode, &$body, &$closeNode, $settings){
 		
-		$id = count($this->references)+1;
+		$id = count($this->_references)+1;
 		$name = $openNode['attributes']['tag_attributes']['ref'];
 		$descr = $body[0]['text'];
 		
 		$exists = false;
 		
-		foreach($this->references as $key=>$ref){
+		foreach($this->_references as $key=>$ref){
 			if($ref['name'] === $name && $ref['descr'] === $descr){
 				$exists = true;
 				$id = (int)$key+1;
@@ -45,12 +45,16 @@ class BbCodeFilterReferences {
 		$closeNode['text'] = '</a></sup>';
 		
 		if(!$exists){
-			$this->references[] = array(
+			$this->_references[] = array(
 				'id'	=> $id,
 				'name'	=> $name,
 				'descr'	=> $descr
 			);
 		}
+	}
+	
+	public function getReferences(){
+		return $this->_references;
 	}
 	
 }
