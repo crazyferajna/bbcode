@@ -40,7 +40,7 @@ class BbCodeFilterReferences {
 			}
 		}
 		
-		$openNode['text'] = '<sup><a href="#references">';
+		$openNode['text'] = '<sup><a href="#references" id="ref_'.$id.'">';
 		$body[0]['text_html'] = '['.$id.']';
 		$closeNode['text'] = '</a></sup>';
 		
