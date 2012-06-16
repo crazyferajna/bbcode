@@ -36,7 +36,7 @@ class BbCodeSettings {
 	 * 	Lista filtrów do uruchomienia
 	 * @var array
 	 */
-	public $filters = array('basic', 'code', 'url', 'list', 'image', 'youtube', 'references');
+	public $filters = array('basic', 'code', 'url', 'list', 'image', 'youtube');
 	/**
 	 * 	Kodowanie używane przy skracaniu tekstu
 	 * @var string
