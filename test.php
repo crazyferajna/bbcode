@@ -80,11 +80,11 @@ Linkowanie filmów z youtube[ref=Youtube]serwis pozwalający udostepniać filmy[
 
 			echo '<fieldset><legend>Przeparsowany bbcode (zaufany) ('.$time.')</legend>'.$bb->getHtml().'</fieldset>';
 			echo '<fieldset class="pre"><legend>Wersja bbcode (zaufany) ('.$time.')</legend>'.$bb->getBbcode().'</fieldset>';
-			echo '<frameset><legend>Wylistowane odnośniki</legend><ul>';
+			echo '<frameset><legend>Wylistowane odnośniki</legend><ol>';
 			foreach($bb->getFilter('references')->getReferences() as $reference){
-				echo '<li>'.$reference['name'].' - '.$reference['descr'].'</li>';
+				echo '<li><a href="#ref_'.$reference['id'].'">↑</a> '.$reference['name'].' - '.$reference['descr'].'</li>';
 			}
-			echo '</ul></frameset>';
+			echo '</ol></frameset>';
 		?>
 	</body>
 </html>
