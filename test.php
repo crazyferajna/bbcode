@@ -62,7 +62,7 @@ Wszystkie inne tagi w tym obszarze będą ignorowane [code][b][s][i][/code][/cod
 Linkowanie filmów z youtube[ref=Youtube]serwis pozwalający udostepniać filmy[/ref]:
 [youtube]-Fe4dk0Jtcw[/youtube]
 ';
-
+			$bb->loadFilter('references');
 			echo '<fieldset class="pre"><legend>Oryginalny tekst</legend>'.$text.'</fieldset>';
 
 			$start = getmicrotime();
