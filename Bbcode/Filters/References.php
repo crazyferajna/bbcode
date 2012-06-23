@@ -27,25 +27,28 @@ class BbCodeFilterReferences {
 	
 	public function parseReferences($tag, &$openNode, &$body, &$closeNode, $settings){
 		
-		$id = count($this->_references)+1;
+		$id = count($this->references)+1;
 		$name = $openNode['attributes']['tag_attributes']['ref'];
 		$descr = $body[0]['text'];
 		
 		$exists = false;
 		
-		foreach($this->_references as $key=>$ref){
+		foreach($this->references as $key=>$ref){
 			if($ref['name'] === $name && $ref['descr'] === $descr){
 				$exists = true;
 				$id = (int)$key+1;
 			}
 		}
 		
-		$openNode['text'] = '<sup><a href="#references" id="ref_'.$id.'">';
-		$body[0]['text_html'] = '['.$id.']';
-		$closeNode['text'] = '</a></sup>';
+		$openNode['text'] = '<sup><a href="#ref_'.$id.'">'.'['.$id.']'.'</a></sup>';
+		$closeNode['text'] = '';
+		
+		reset($body);
+		$body[0]['tagText'] = $body[0]['text'];
+		$body[0]['text'] = '';
 		
 		if(!$exists){
-			$this->_references[] = array(
+			$this->references[] = array(
 				'id'	=> $id,
 				'name'	=> $name,
 				'descr'	=> $descr
